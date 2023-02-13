@@ -6,42 +6,41 @@ for i in range(numthings):
     o = input().split(' ')
     o = [int(x) for x in o]
     lines.append(o)
+    
 
 def checkGood(lines):
-    
     currentBiggest = 0
-
     for line in lines:
 
         sortedline = sorted(line)
         if sortedline != line:
-            print('bad')
-            return
+            return 'bad'
 
-        if line[-1] > currentBiggest:
-            currentBiggest = line[-1]
-        else:
-            print('bad')
-            return
+        # if line[-1] > currentBiggest:
+        #     currentBiggest = line[-1]
+        # else:
+        #     return 'bad'
 
-    print('good')
+    return 'good'
 
-def rotate(lines):
+print()
+for i in range(4):
+    good = checkGood(lines)
 
-    if numthings % 2 == 0:
-        pass
+    if good:
+        
 
-    else:
-        newlist = []
-        for i in range(len(lines)):
-            newlist += [[0]*numthings]
-
-        newlist[int(numthings/2)][int(numthings/2)] = lines[int(numthings/2)][int(numthings/2)]
-
-        for line in range(len(lines)):
-            
-            for character in lines[line]:
-                break
-        print(newlist)
-
-rotate(lines)
+    if i == 0:
+        newlines = []
+        for j in range(len(lines)): 
+            thingy = []
+            for k in range(len(lines)):
+                thingy.append(lines[k][j])
+            newlines.append(thingy)
+        lines = newlines
+        
+        for j in lines:
+            e = ''
+            for k in j:
+                e += f'{k} '
+            print(e)
